@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/imagens/taur/run3.png" type="Texture" id=1]
 [ext_resource path="res://assets/imagens/taur/run0.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/imagens/taur/run6.png" type="Texture" id=12]
 [ext_resource path="res://assets/imagens/taur/run7.png" type="Texture" id=13]
 [ext_resource path="res://assets/imagens/taur/run8.png" type="Texture" id=14]
+[ext_resource path="res://src/scripts/Player.gd" type="Script" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,6 +43,7 @@ animations = [ {
 extents = Vector2( 36.0206, 22.5784 )
 
 [node name="Player" type="KinematicBody2D"]
+script = ExtResource( 15 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -49,3 +51,10 @@ animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 550
+smoothing_enabled = true
