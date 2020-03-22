@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/imagens/ground/ground4.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/imagens/fence/fence3.png" type="Texture" id=3]
+[ext_resource path="res://src/scripts/Ground.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.119, 54.847 )
@@ -12,6 +13,7 @@ extents = Vector2( 29.778, 32.5509 )
 
 [node name="Ground" type="StaticBody2D"]
 position = Vector2( 61.3692, 585.797 )
+script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -3.09087 )
