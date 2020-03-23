@@ -7,7 +7,6 @@ const GRAVITY = 20
 const SPEED = 500
 const JUMP_HEIGHT = -550
 
-
 func _physics_process(delta: float) -> void:
 	motion.y += GRAVITY
 	
@@ -32,4 +31,4 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite.play("jump")
 			
-	motion = move_and_slide(motion, UP)
+	move_and_slide(motion, UP)
