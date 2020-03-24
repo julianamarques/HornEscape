@@ -1,23 +1,20 @@
 extends StaticBody2D
 
 
-var speed = 200
-
-#var player = preload("res://src/scenes/Player.tscn")
+var speed = 0
+var is_moving = false
+var score = 0
 
 func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	#position.x = speed * delta
-	#if position.x > get_viewport_rect().size.x:
-	#	queue_free()
+	position.x += -speed * delta
 	
-	#player
-
-	pass
-
+	#if position.x > get_viewport_rect().size.x + 200:
+	#	queue_free()
 
 func _on_Area2D_body_entered(body: Node) -> void:
-	if body.name == "Player":
+	if (body.name == "Player") and not is_moving:
+		is_moving = true
 		get_tree().call_group("obstacles", "generate_obstacles", position.x)
