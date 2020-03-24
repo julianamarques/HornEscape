@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/imagens/ground/ground4.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Enemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/imagens/fence/fence3.png" type="Texture" id=3]
 [ext_resource path="res://src/scripts/Ground.gd" type="Script" id=4]
 [ext_resource path="res://assets/imagens/impulse/impulse.png" type="Texture" id=5]
+[ext_resource path="res://src/scripts/Fence.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 598.119, 54.847 )
@@ -34,6 +35,7 @@ shape = SubResource( 1 )
 [node name="Fence" type="Area2D" parent="."]
 position = Vector2( -383.141, -88.3542 )
 rotation = -0.32232
+script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Fence"]
 texture = ExtResource( 3 )
@@ -44,6 +46,7 @@ shape = SubResource( 2 )
 [node name="Fence2" type="Area2D" parent="."]
 position = Vector2( 460.766, -85.7696 )
 rotation = -0.32232
+script = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Fence2"]
 texture = ExtResource( 3 )
@@ -71,4 +74,8 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 178.403, -205.568 )
 shape = SubResource( 4 )
+[connection signal="body_entered" from="Fence" to="Fence" method="_on_fence_body_entered"]
+[connection signal="body_entered" from="Fence" to="." method="_on_fence_body_entered_score"]
+[connection signal="body_entered" from="Fence2" to="Fence2" method="_on_fence2_body_entered"]
+[connection signal="body_entered" from="Fence2" to="." method="_on_fence2_body_entered_score"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
