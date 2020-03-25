@@ -13,7 +13,7 @@ func increment_score(body: Node):
 		get_tree().call_group("score_group", "calculate_score")
 	
 func _process(delta: float) -> void:
-	position.x += -speed * delta
+	position.x += speed * delta
 	
 	#if position.x > get_viewport_rect().size.x + 200:
 	#	queue_free()

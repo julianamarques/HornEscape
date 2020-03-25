@@ -32,3 +32,16 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("jump")
 			
 	move_and_slide(motion, UP)
+	
+	if position.y > get_viewport_rect().size.y:
+		queue_free()
+		get_tree().change_scene("res://src/scenes/Menu.tscn")
+
+func _on_EnemyKill_body_entered(body: Node) -> void:
+	if body.name == "Enemy":
+		body.queue_free()
+
+func _on_PlayerVulnerability_body_entered(body: Node) -> void:
+	if body.name == "Enemy":
+		queue_free()
+		get_tree().change_scene("res://src/scenes/Menu.tscn")

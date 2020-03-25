@@ -57,10 +57,10 @@ shape = SubResource( 2 )
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( -48.7003, -99.3488 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AreaChao" type="Area2D" parent="."]
 position = Vector2( 12.9543, -61.0703 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaChao"]
 position = Vector2( -14.8051, -1.85059 )
 shape = SubResource( 3 )
 
@@ -74,8 +74,8 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 178.403, -205.568 )
 shape = SubResource( 4 )
-[connection signal="body_entered" from="Fence" to="Fence" method="_on_fence_body_entered"]
+[connection signal="body_entered" from="Fence" to="Fence" method="_on_Fence_body_entered"]
 [connection signal="body_entered" from="Fence" to="." method="_on_fence_body_entered_score"]
-[connection signal="body_entered" from="Fence2" to="Fence2" method="_on_fence2_body_entered"]
 [connection signal="body_entered" from="Fence2" to="." method="_on_fence2_body_entered_score"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Fence2" to="Fence2" method="_on_fence2_body_entered"]
+[connection signal="body_entered" from="AreaChao" to="." method="_on_Area2D_body_entered"]
