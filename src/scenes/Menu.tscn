@@ -44,7 +44,6 @@ texture = ExtResource( 3 )
 position = Vector2( 117.414, 466.482 )
 frames = SubResource( 1 )
 animation = "impulse"
-frame = 1
 playing = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/imagens/backgrounds/background_scene.jpg" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Ground.tscn" type="PackedScene" id=2]
@@ -6,12 +6,27 @@
 [ext_resource path="res://assets/fonts/Bubblegum.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/scripts/Obstacles.gd" type="Script" id=5]
 [ext_resource path="res://src/scripts/Score.gd" type="Script" id=6]
+[ext_resource path="res://assets/fonts/HEYCOLD.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://src/scripts/World.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 4 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 7 )
+
 [node name="World" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -50,6 +65,46 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 0.576471 )
 text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOver" type="Label" parent="Score"]
+visible = false
+margin_left = 425.711
+margin_top = 202.256
+margin_right = 622.711
+margin_bottom = 253.256
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.905882 )
+text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreTextGameOver" type="Label" parent="Score"]
+visible = false
+margin_left = 513.616
+margin_top = 274.592
+margin_right = 553.616
+margin_bottom = 328.592
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.654902 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hint" type="Label" parent="CanvasLayer"]
+margin_left = 190.389
+margin_top = 59.5425
+margin_right = 556.389
+margin_bottom = 90.5425
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.733333 )
+text = "QUEBRE AS CERCAS PARA ESCAPAR"
 __meta__ = {
 "_edit_use_anchors_": false
 }

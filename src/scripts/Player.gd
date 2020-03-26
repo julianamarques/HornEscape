@@ -4,25 +4,15 @@ extends KinematicBody2D
 var motion = Vector2()
 const UP = Vector2(0, -1)
 const GRAVITY = 20
-const SPEED = 500
+const SPEED = 1
 const JUMP_HEIGHT = -550
 
 func _physics_process(delta: float) -> void:
 	motion.y += GRAVITY
 	
-	if Input.is_action_pressed("ui_right"):
-		motion.x = SPEED
-		$AnimatedSprite.play("run")
-		$AnimatedSprite.flip_h = false
-		
-	elif Input.is_action_pressed("ui_left"):
-		motion.x = -SPEED
-		$AnimatedSprite.play("run")
-		$AnimatedSprite.flip_h = true
-		
-	else:
-		motion.x = 0
-		$AnimatedSprite.play("idle")
+	motion.x += SPEED
+	$AnimatedSprite.play("run")
+	$AnimatedSprite.flip_h = false
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("ui_up"):
@@ -35,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	
 	if position.y > get_viewport_rect().size.y:
 		queue_free()
-		get_tree().change_scene("res://src/scenes/Menu.tscn")
+		get_tree().call_group("score_group", "game_over")
 
 func _on_EnemyKill_body_entered(body: Node) -> void:
 	if body.name == "Enemy":
@@ -44,4 +34,4 @@ func _on_EnemyKill_body_entered(body: Node) -> void:
 func _on_PlayerVulnerability_body_entered(body: Node) -> void:
 	if body.name == "Enemy":
 		queue_free()
-		get_tree().change_scene("res://src/scenes/Menu.tscn")
+		get_tree().call_group("score_group", "game_over")
