@@ -1,36 +1,36 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/fonts/HEYCOLD.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/imagens/taur/impuse2.png" type="Texture" id=2]
-[ext_resource path="res://assets/imagens/backgrounds/backgound_menu.png" type="Texture" id=3]
-[ext_resource path="res://assets/imagens/taur/impulse0.png" type="Texture" id=4]
-[ext_resource path="res://assets/imagens/taur/impulse1.png" type="Texture" id=5]
-[ext_resource path="res://src/scripts/Menu.gd" type="Script" id=6]
+[ext_resource path="res://src/scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/imagens/backgrounds/backgound_menu.png" type="Texture" id=2]
+[ext_resource path="res://assets/imagens/taur/impulse0.png" type="Texture" id=3]
+[ext_resource path="res://assets/imagens/taur/impulse1.png" type="Texture" id=4]
+[ext_resource path="res://assets/imagens/taur/impuse2.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/HEYCOLD.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "impulse",
-"speed": 2.0
+"speed": 3.0
 } ]
 
 [sub_resource type="DynamicFont" id=2]
 size = 75
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 25
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 25
-font_data = ExtResource( 1 )
+font_data = ExtResource( 6 )
 
 [node name="Menu" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 6 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,10 +38,11 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 512.352, 303.322 )
 scale = Vector2( 1.01565, 0.97443 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 117.414, 466.482 )
+position = Vector2( 180, 442 )
+scale = Vector2( 3, 2.5 )
 frames = SubResource( 1 )
 animation = "impulse"
 playing = true
